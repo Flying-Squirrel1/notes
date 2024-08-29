@@ -1,0 +1,110 @@
+body {
+  font-family: "Lucida Console", "Courier New", monospace;
+  background-color: black;
+  color: #4AF626;
+}
+
+
+.lCol {
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.lCol *::before {
+  content: "↳"; /* Adds a bullet character before each link */
+  margin-right: 5px; /* Optional: Adds space between the bullet and text */
+  color: #2bff00;
+}
+
+.lCol *{
+  text-decoration: none;
+  color: #4AF626;
+  width: max-content;
+  
+}
+.lCol p{
+  
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+} 
+
+a {
+  text-decoration: none;
+  color: #2bff00;
+}
+
+.lCol input {
+  background-color: black;
+  border: none;
+  font-size: 1rem;
+
+  
+}
+
+a:hover{
+  color: #308f1d;
+}
+
+.lCol *:hover{
+
+  text-decoration: none;
+  color: #308f1d;
+}
+
+.factsCreate *{
+  background-color: transparent;
+  border-radius: 0;
+  border-color: #308f1d;
+  outline: none;
+  color: #2bff00;
+  font-size: 1rem;
+}
+
+
+
+.editable-input {
+  border: none; /* Remove default border */
+  background-color: transparent; /* Make background transparent */
+  outline: none; /* Remove default focus outline */
+  font-size: 16px; /* Adjust font size to match a span */
+  font-family: inherit; /* Inherit font from parent */
+  color: inherit; /* Inherit text color from parent */
+  padding: 0; /* Remove any default padding */
+  margin: 0; /* Remove any default margin */
+  width: auto; /* Allow input to size based on content */
+  display: inline-block; /* Make it appear inline like a span */
+  cursor: text; /* Show a text cursor when hovering over the input */
+  margin-left: 10px;
+}
+.ting{
+  display: flex;
+  flex-direction: row;
+
+  font-weight: 900;
+  cursor:grab;
+}
+.editable-input input::before{
+  content: "↳"; /* Adds a bullet character before each link */
+  margin-right: 5px; /* Optional: Adds space between the bullet and text */
+  color: #2bff00;
+}
+
+textarea {
+  resize: none;
+  background-color: transparent;
+  color: #2bff00;
+  border-radius: 0%;
+  border-color: #4AF626;
+}
+
+textarea:focus{
+  outline: none;
+  border-color: #4AF626;
+}
+
+.clicx {
+  cursor: cell;
+}
