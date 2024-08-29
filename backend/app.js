@@ -157,6 +157,41 @@ app.put("/:sub/:blo/:topic", async (req, res) => {
 
 
 
+app.patch("/:sub/:blo/:topic", async (req, res) => {
+
+  
+    try {
+    const updatedEntry = await Subject.findOneAndUpdate(
+      {
+        title: req.params.sub,
+        'blocks.title': req.params.blo,
+        'blocks.topics.title': req.params.topic,
+      },
+      {
+        $push: { 'blocks.$[block].topics.$[topic].keyFacts':{term: req.body[0], definition: req.body[1]} },
+      },
+      {
+        arrayFilters: [
+          { 'block.title': req.params.blo },
+          { 'topic.title': req.params.topic }
+        ],
+        new: true,
+      }
+    );
+
+    if (!updatedEntry) {
+      console.log('Post, Comment, or User not found');
+      return;
+    }
+
+    console.log('User name updated successfully');
+    res.status(200).json(updatedEntry);
+  } catch (error) {
+    console.error('Error updating user name:', error);
+    res.status(400);
+  }
+});
+
 //UTILITY methods
 
 const camelToStr = (camelCase) => {
